@@ -29,12 +29,13 @@
       [
         "bin/gn",
         "gen",
-        "#{self.target_dir}/out/Debug"
+        "#{self.target_dir}/out/Release",
+        "--args=\"is_debug=false\""
       ],
       [
         "ninja.exe",
         "-C",
-        "#{self.target_dir}/out/Debug"
+        "#{self.target_dir}/out/Release"
       ]
     ],
     "install": [
