@@ -16,8 +16,12 @@
   },
   "homepage": "https://skia.org",
   "esy": {
+    "buildEnv": {
+      "PATH": "#{self.target_dir : $PATH}"
+    },
     "buildsInSource": true,
     "build": [
+      "cp /usr/bin/python ./python.exe",
       [
         "python",
         "tools/git-sync-deps"
@@ -25,12 +29,13 @@
       [
         "bin/gn",
         "gen",
-        "#{self.target_dir}/out/Debug"
+        "#{self.target_dir}/out/Release",
+        "--args=\"is_debug=false\""
       ],
       [
         "ninja.exe",
         "-C",
-        "#{self.target_dir}/out/Debug"
+        "#{self.target_dir}/out/Release"
       ]
     ],
     "install": [
